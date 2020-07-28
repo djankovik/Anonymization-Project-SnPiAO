@@ -1,0 +1,466 @@
+TABLE_NAME	COLUMN_NAME	DATATYPE	NULLABLE	ANONYMIZATION	DEFAULT VALUE
+HumanResources.Department	DepartmentID	smallint	NOT NULL	Omit	
+HumanResources.Department	Name	nvarchar(50)	NOT NULL	Omit	
+HumanResources.Department	GroupName	nvarchar(50)	NOT NULL	Omit	
+HumanResources.Department	ModifiedDate	datetime	NOT NULL	Omit	
+HumanResources.Employee	BusinessEntityID	int	NOT NULL	Random	
+HumanResources.Employee	NationalIDNumber	nvarchar(15)	NOT NULL	Omit	
+HumanResources.Employee	LoginID	nvarchar(256)	NOT NULL	Omit	
+HumanResources.Employee	OrganizationNode	hierarchyid	NULL	Random	
+HumanResources.Employee	OrganizationLevel	smallint	NULL	Set Null	
+HumanResources.Employee	JobTitle	nvarchar(50)	NOT NULL	Omit	
+HumanResources.Employee	BirthDate	date	NOT NULL	Random	
+HumanResources.Employee	MaritalStatus	nchar(1)	NOT NULL	RandomPseudonymFromSet	
+HumanResources.Employee	Gender	nchar(1)	NOT NULL	RandomFromSet	
+HumanResources.Employee	HireDate	date	NOT NULL	Omit	
+HumanResources.Employee	SalariedFlag	bit	NOT NULL	RandomPseudonym	
+HumanResources.Employee	VacationHours	smallint	NOT NULL	Random	
+HumanResources.Employee	SickLeaveHours	smallint	NOT NULL	RandomPseudonym	
+HumanResources.Employee	CurrentFlag	bit	NOT NULL	Random	
+HumanResources.Employee	rowguid	uniqueidentifier	NOT NULL	Default value	
+HumanResources.Employee	ModifiedDate	datetime	NOT NULL	Default value	
+HumanResources.EmployeeDepartmentHistory	BusinessEntityID	int	NOT NULL	Omit	
+HumanResources.EmployeeDepartmentHistory	DepartmentID	smallint	NOT NULL	Omit	
+HumanResources.EmployeeDepartmentHistory	ShiftID	tinyint	NOT NULL	Omit	
+HumanResources.EmployeeDepartmentHistory	StartDate	date	NOT NULL	Omit	
+HumanResources.EmployeeDepartmentHistory	EndDate	date	NULL	Omit	
+HumanResources.EmployeeDepartmentHistory	ModifiedDate	datetime	NOT NULL	Omit	
+HumanResources.EmployeePayHistory	BusinessEntityID	int	NOT NULL	Omit	
+HumanResources.EmployeePayHistory	RateChangeDate	datetime	NOT NULL	Omit	
+HumanResources.EmployeePayHistory	Rate	money	NOT NULL	Omit	
+HumanResources.EmployeePayHistory	PayFrequency	tinyint	NOT NULL	Omit	
+HumanResources.EmployeePayHistory	ModifiedDate	datetime	NOT NULL	Omit	
+HumanResources.JobCandidate	JobCandidateID	int	NOT NULL	Omit	
+HumanResources.JobCandidate	BusinessEntityID	int	NOT NULL	Omit	
+HumanResources.JobCandidate	Resume	XML(HumanResources.HRResumeSchemaCollection)	NULL	Omit	
+HumanResources.JobCandidate	ModifiedDate	datetime	NOT NULL	Omit	
+HumanResources.Shift	ShiftID	tinyint	NOT NULL	RandomPseudonymFromSet	
+HumanResources.Shift	Name	nvarchar(50)	NOT NULL	RandomFromSet	
+HumanResources.Shift	StartTime	time(7)	NOT NULL	RandomPseudonymPerTable	
+HumanResources.Shift	EndTime	time(7)	NOT NULL	Default value	getdate()
+HumanResources.Shift	ModifiedDate	datetime	NOT NULL	Omit	
+Person.Address	AddressID	int	NOT NULL	Omit	
+Person.Address	AddressLine1	nvarchar(60)	NOT NULL	Omit	
+Person.Address	AddressLine2	nvarchar(60)	NULL	Omit	
+Person.Address	City	nvarchar(30)	NOT NULL	Omit	
+Person.Address	StateProvinceID	int	NOT NULL	Omit	
+Person.Address	PostalCode	nvarchar(15)	NOT NULL	Omit	
+Person.Address	SpatialLocation	geography	NULL	Omit	
+Person.Address	rowguid	uniqueidentifier	NOT NULL	Omit	
+Person.Address	ModifiedDate	datetime	NOT NULL	Omit	
+Person.AddressType	AddressTypeID	int	NOT NULL	Omit	
+Person.AddressType	Name	nvarchar(50)	NOT NULL	Omit	
+Person.AddressType	rowguid	uniqueidentifier	NOT NULL	Omit	
+Person.AddressType	ModifiedDate	datetime	NOT NULL	Omit	
+Person.BusinessEntity	BusinessEntityID	int	NOT NULL	Omit	
+Person.BusinessEntity	rowguid	uniqueidentifier	NOT NULL	Omit	
+Person.BusinessEntity	ModifiedDate	datetime	NOT NULL	Omit	
+Person.BusinessEntityAddress	BusinessEntityID	int	NOT NULL	Omit	
+Person.BusinessEntityAddress	AddressID	int	NOT NULL	Omit	
+Person.BusinessEntityAddress	AddressTypeID	int	NOT NULL	Omit	
+Person.BusinessEntityAddress	rowguid	uniqueidentifier	NOT NULL	Omit	
+Person.BusinessEntityAddress	ModifiedDate	datetime	NOT NULL	Omit	
+Person.BusinessEntityContact	BusinessEntityID	int	NOT NULL	Omit	
+Person.BusinessEntityContact	PersonID	int	NOT NULL	Omit	
+Person.BusinessEntityContact	ContactTypeID	int	NOT NULL	Omit	
+Person.BusinessEntityContact	rowguid	uniqueidentifier	NOT NULL	Omit	
+Person.BusinessEntityContact	ModifiedDate	datetime	NOT NULL	Omit	
+Person.ContactType	ContactTypeID	int	NOT NULL	Omit	
+Person.ContactType	Name	nvarchar(50)	NOT NULL	Omit	
+Person.ContactType	ModifiedDate	datetime	NOT NULL	Omit	
+Person.CountryRegion	CountryRegionCode	nvarchar(3)	NOT NULL	Omit	
+Person.CountryRegion	Name	nvarchar(50)	NOT NULL	Omit	
+Person.CountryRegion	ModifiedDate	datetime	NOT NULL	Omit	
+Person.EmailAddress	BusinessEntityID	int	NOT NULL	Omit	
+Person.EmailAddress	EmailAddressID	int	NOT NULL	Omit	
+Person.EmailAddress	EmailAddress	nvarchar(50)	NULL	Omit	
+Person.EmailAddress	rowguid	uniqueidentifier	NOT NULL	Omit	
+Person.EmailAddress	ModifiedDate	datetime	NOT NULL	Omit	
+Person.Password	BusinessEntityID	int	NOT NULL	Omit	
+Person.Password	PasswordHash	varchar(128)	NOT NULL	Omit	
+Person.Password	PasswordSalt	varchar(10)	NOT NULL	Omit	
+Person.Password	rowguid	uniqueidentifier	NOT NULL	Omit	
+Person.Password	ModifiedDate	datetime	NOT NULL	Omit	
+Person.Person	BusinessEntityID	int	NOT NULL	Omit	
+Person.Person	PersonType	nchar(2)	NOT NULL	Omit	
+Person.Person	NameStyle	NameStyle(bit)	NOT NULL	Omit	
+Person.Person	Title	nvarchar(8)	NULL	Omit	
+Person.Person	FirstName	nvarchar(50)	NOT NULL	Omit	
+Person.Person	MiddleName	nvarchar(50)	NULL	Omit	
+Person.Person	LastName	nvarchar(50)	NOT NULL	Omit	
+Person.Person	Suffix	nvarchar(10)	NULL	Omit	
+Person.Person	EmailPromotion	int	NOT NULL	Omit	
+Person.Person	AdditionalContactInfo	XML(Person.AdditionalContactInfoSchemaCollection)	NULL	Omit	
+Person.Person	Demographics	XML(Person.IndividualSurveySchemaCollection)	NULL	Omit	
+Person.Person	rowguid	uniqueidentifier	NOT NULL	Omit	
+Person.Person	ModifiedDate	datetime	NOT NULL	Omit	
+Person.PersonPhone	BusinessEntityID	int	NOT NULL	Omit	
+Person.PersonPhone	PhoneNumber	nvarchar(25)	NOT NULL	Omit	
+Person.PersonPhone	PhoneNumberTypeID	int	NOT NULL	Omit	
+Person.PersonPhone	ModifiedDate	datetime	NOT NULL	Omit	
+Person.PhoneNumberType	PhoneNumberTypeID	int	NOT NULL	Omit	
+Person.PhoneNumberType	Name	nvarchar(50)	NOT NULL	Omit	
+Person.PhoneNumberType	ModifiedDate	datetime	NOT NULL	Omit	
+Person.StateProvince	StateProvinceID	int	NOT NULL	Omit	
+Person.StateProvince	StateProvinceCode	nchar(3)	NOT NULL	Omit	
+Person.StateProvince	CountryRegionCode	nvarchar(3)	NOT NULL	Omit	
+Person.StateProvince	IsOnlyStateProvinceFlag	bit	NOT NULL	Omit	
+Person.StateProvince	Name	nvarchar(50)	NOT NULL	Omit	
+Person.StateProvince	TerritoryID	int	NOT NULL	Omit	
+Person.StateProvince	rowguid	uniqueidentifier	NOT NULL	Omit	
+Person.StateProvince	ModifiedDate	datetime	NOT NULL	Omit	
+Production.BillOfMaterials	BillOfMaterialsID	int	NOT NULL	Omit	
+Production.BillOfMaterials	ProductAssemblyID	int	NULL	Omit	
+Production.BillOfMaterials	ComponentID	int	NOT NULL	Omit	
+Production.BillOfMaterials	StartDate	datetime	NOT NULL	Omit	
+Production.BillOfMaterials	EndDate	datetime	NULL	Omit	
+Production.BillOfMaterials	UnitMeasureCode	nchar(3)	NOT NULL	Omit	
+Production.BillOfMaterials	BOMLevel	smallint	NOT NULL	Omit	
+Production.BillOfMaterials	PerAssemblyQty	"decimal(8,2)"	NOT NULL	Omit	
+Production.BillOfMaterials	ModifiedDate	datetime	NOT NULL	Omit	
+Production.Culture	CultureID	nchar(6)	NOT NULL	Omit	
+Production.Culture	Name	nvarchar(50)	NOT NULL	Omit	
+Production.Culture	ModifiedDate	datetime	NOT NULL	Omit	
+Production.Document	DocumentNode	hierarchyid	NOT NULL	Omit	
+Production.Document	DocumentLevel	smallint	NULL	Omit	
+Production.Document	Title	nvarchar(50)	NOT NULL	Omit	
+Production.Document	Owner	int	NOT NULL	Omit	
+Production.Document	FolderFlag	bit	NOT NULL	Omit	
+Production.Document	FileName	nvarchar(400)	NOT NULL	Omit	
+Production.Document	FileExtension	nvarchar(8)	NOT NULL	Omit	
+Production.Document	Revision	nchar(5)	NOT NULL	Omit	
+Production.Document	ChangeNumber	int	NOT NULL	Omit	
+Production.Document	Status	tinyint	NOT NULL	Omit	
+Production.Document	DocumentSummary	nvarchar(max)	NULL	Omit	
+Production.Document	Document	varbinary(max)	NULL	Omit	
+Production.Document	rowguid	uniqueidentifier	NOT NULL	Omit	
+Production.Document	ModifiedDate	datetime	NOT NULL	Omit	
+Production.Illustration	IllustrationID	int	NOT NULL	Omit	
+Production.Illustration	Diagram	XML(.)	NULL	Omit	
+Production.Illustration	ModifiedDate	datetime	NOT NULL	Omit	
+Production.Location	LocationID	smallint	NOT NULL	Omit	
+Production.Location	Name	nvarchar(50)	NOT NULL	Omit	
+Production.Location	CostRate	smallmoney	NOT NULL	Omit	
+Production.Location	Availability	"decimal(8,2)"	NOT NULL	Omit	
+Production.Location	ModifiedDate	datetime	NOT NULL	Omit	
+Production.Product	ProductID	int	NOT NULL	Omit	
+Production.Product	Name	nvarchar(50)	NOT NULL	Omit	
+Production.Product	ProductNumber	nvarchar(25)	NOT NULL	Omit	
+Production.Product	MakeFlag	bit	NOT NULL	Omit	
+Production.Product	FinishedGoodsFlag	bit	NOT NULL	Omit	
+Production.Product	Color	nvarchar(15)	NULL	Omit	
+Production.Product	SafetyStockLevel	smallint	NOT NULL	Omit	
+Production.Product	ReorderPoint	smallint	NOT NULL	Omit	
+Production.Product	StandardCost	money	NOT NULL	Omit	
+Production.Product	ListPrice	money	NOT NULL	Omit	
+Production.Product	Size	nvarchar(5)	NULL	Omit	
+Production.Product	SizeUnitMeasureCode	nchar(3)	NULL	Omit	
+Production.Product	WeightUnitMeasureCode	nchar(3)	NULL	Omit	
+Production.Product	Weight	"decimal(8,2)"	NULL	Omit	
+Production.Product	DaysToManufacture	int	NOT NULL	Omit	
+Production.Product	ProductLine	nchar(2)	NULL	Omit	
+Production.Product	Class	nchar(2)	NULL	Omit	
+Production.Product	Style	nchar(2)	NULL	Omit	
+Production.Product	ProductSubcategoryID	int	NULL	Omit	
+Production.Product	ProductModelID	int	NULL	Omit	
+Production.Product	SellStartDate	datetime	NOT NULL	Omit	
+Production.Product	SellEndDate	datetime	NULL	Omit	
+Production.Product	DiscontinuedDate	datetime	NOT NULL	Omit	
+Production.Product	rowguid	uniqueidentifier	NOT NULL	Omit	
+Production.Product	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ProductCategory	ProductCategoryID	int	NOT NULL	Omit	
+Production.ProductCategory	Name	nvarchar(50)	NOT NULL	Omit	
+Production.ProductCategory	rowguid	uniqueidentifier	NOT NULL	Omit	
+Production.ProductCategory	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ProductCostHistory	ProductID	int	NOT NULL	Omit	
+Production.ProductCostHistory	StartDate	datetime	NOT NULL	Omit	
+Production.ProductCostHistory	EndDate	datetime	NULL	Omit	
+Production.ProductCostHistory	StandardCost	money	NOT NULL	Omit	
+Production.ProductCostHistory	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ProductDescription	ProductDescriptionID	int	NOT NULL	Omit	
+Production.ProductDescription	Description	nvarchar(400)	NOT NULL	Omit	
+Production.ProductDescription	rowguid	uniqueidentifier	NOT NULL	Omit	
+Production.ProductDescription	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ProductDocument	ProductID	int	NOT NULL	Omit	
+Production.ProductDocument	DocumentNode	hierarchyid	NOT NULL	Omit	
+Production.ProductDocument	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ProductInventory	ProductID	int	NOT NULL	Omit	
+Production.ProductInventory	LocationID	smallint	NOT NULL	Omit	
+Production.ProductInventory	Shelf	nvarchar(10)	NOT NULL	Omit	
+Production.ProductInventory	Bin	tinyint	NOT NULL	Omit	
+Production.ProductInventory	Quantity	smallint	NOT NULL	Omit	
+Production.ProductInventory	rowguid	uniqueidentifier	NOT NULL	Omit	
+Production.ProductInventory	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ProductListPriceHistory	ProductID	int	NOT NULL	Omit	
+Production.ProductListPriceHistory	StartDate	datetime	NOT NULL	Omit	
+Production.ProductListPriceHistory	EndDate	datetime	NULL	Omit	
+Production.ProductListPriceHistory	ListPrice	money	NOT NULL	Omit	
+Production.ProductListPriceHistory	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ProductModel	ProductModelID	int	NOT NULL	Omit	
+Production.ProductModel	Name	nvarchar(50)	NOT NULL	Omit	
+Production.ProductModel	CatalogDescription	XML(Production.ProductDescriptionSchemaCollection)	NULL	Omit	
+Production.ProductModel	Instructions	XML(Production.ManuInstructionsSchemaCollection)	NULL	Omit	
+Production.ProductModel	rowguid	uniqueidentifier	NOT NULL	Omit	
+Production.ProductModel	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ProductModelIllustration	ProductModelID	int	NOT NULL	Omit	
+Production.ProductModelIllustration	IllustrationID	int	NOT NULL	Omit	
+Production.ProductModelIllustration	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ProductModelProductDescriptionCulture	ProductModelID	int	NOT NULL	Omit	
+Production.ProductModelProductDescriptionCulture	ProductDescriptionID	int	NOT NULL	Omit	
+Production.ProductModelProductDescriptionCulture	CultureID	nchar(6)	NOT NULL	Omit	
+Production.ProductModelProductDescriptionCulture	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ProductPhoto	ProductPhotoID	int	NOT NULL	Omit	
+Production.ProductPhoto	ThumbNailPhoto	varbinary(max)	NULL	Omit	
+Production.ProductPhoto	ThumbnailPhotoFileName	nvarchar(50)	NULL	Omit	
+Production.ProductPhoto	LargePhoto	varbinary(max)	NULL	Omit	
+Production.ProductPhoto	LargePhotoFileName	nvarchar(50)	NULL	Omit	
+Production.ProductPhoto	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ProductProductPhoto	ProductID	int	NOT NULL	Omit	
+Production.ProductProductPhoto	ProductPhotoID	int	NOT NULL	Omit	
+Production.ProductProductPhoto	Primary	bit	NOT NULL	Omit	
+Production.ProductProductPhoto	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ProductReview	ProductReviewID	int	NOT NULL	Omit	
+Production.ProductReview	ProductID	int	NOT NULL	Omit	
+Production.ProductReview	ReviewerName	nvarchar(50)	NOT NULL	Omit	
+Production.ProductReview	ReviewDate	datetime	NOT NULL	Omit	
+Production.ProductReview	EmailAddress	nvarchar(50)	NOT NULL	Omit	
+Production.ProductReview	Rating	int	NOT NULL	Omit	
+Production.ProductReview	Comments	nvarchar(3850)	NULL	Omit	
+Production.ProductReview	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ProductSubcategory	ProductSubcategoryID	int	NOT NULL	Omit	
+Production.ProductSubcategory	ProductCategoryID	int	NOT NULL	Omit	
+Production.ProductSubcategory	Name	nvarchar(50)	NOT NULL	Omit	
+Production.ProductSubcategory	rowguid	uniqueidentifier	NOT NULL	Omit	
+Production.ProductSubcategory	ModifiedDate	datetime	NOT NULL	Omit	
+Production.ScrapReason	ScrapReasonID	smallint	NOT NULL	Omit	
+Production.ScrapReason	Name	nvarchar(50)	NOT NULL	Omit	
+Production.ScrapReason	ModifiedDate	datetime	NOT NULL	Omit	
+Production.TransactionHistory	TransactionID	int	NOT NULL	Omit	
+Production.TransactionHistory	ProductID	int	NOT NULL	Omit	
+Production.TransactionHistory	ReferenceOrderID	int	NOT NULL	Omit	
+Production.TransactionHistory	ReferenceOrderLineID	int	NOT NULL	Omit	
+Production.TransactionHistory	TransactionDate	datetime	NOT NULL	Omit	
+Production.TransactionHistory	TransactionType	nchar(1)	NOT NULL	Omit	
+Production.TransactionHistory	Quantity	int	NOT NULL	Omit	
+Production.TransactionHistory	ActualCost	money	NOT NULL	Omit	
+Production.TransactionHistory	ModifiedDate	datetime	NOT NULL	Omit	
+Production.TransactionHistoryArchive	TransactionID	int	NOT NULL	Omit	
+Production.TransactionHistoryArchive	ProductID	int	NOT NULL	Omit	
+Production.TransactionHistoryArchive	ReferenceOrderID	int	NOT NULL	Omit	
+Production.TransactionHistoryArchive	ReferenceOrderLineID	int	NOT NULL	Omit	
+Production.TransactionHistoryArchive	TransactionDate	date	NOT NULL	Omit	
+Production.TransactionHistoryArchive	TransactionType	nchar(1)	NOT NULL	Omit	
+Production.TransactionHistoryArchive	Quantity	int	NOT NULL	Omit	
+Production.TransactionHistoryArchive	ActualCost	money	NOT NULL	Omit	
+Production.TransactionHistoryArchive	ModifiedDate	datetime	NOT NULL	Omit	
+Production.UnitMeasure	UnitMeasureCode	nchar(3)	NOT NULL	Omit	
+Production.UnitMeasure	Name	nvarchar(50)	NOT NULL	Omit	
+Production.UnitMeasure	ModifiedDate	datetime	NOT NULL	Omit	
+Production.WorkOrder	WorkOrderID	int	NOT NULL	Omit	
+Production.WorkOrder	ProductID	int	NOT NULL	Omit	
+Production.WorkOrder	OrderQty	int	NOT NULL	Omit	
+Production.WorkOrder	StockedQty	int	NOT NULL	Omit	
+Production.WorkOrder	ScrappedQty	smallint	NOT NULL	Omit	
+Production.WorkOrder	StartDate	datetime	NOT NULL	Omit	
+Production.WorkOrder	EndDate	datetime	NULL	Omit	
+Production.WorkOrder	DueDate	datetime	NOT NULL	Omit	
+Production.WorkOrder	ScrapReasonID	smallint	NULL	Omit	
+Production.WorkOrder	ModifiedDate	datetime	NOT NULL	Omit	
+Production.WorkOrderRouting	WorkOrderID	int	NOT NULL	Omit	
+Production.WorkOrderRouting	ProductID	int	NOT NULL	Omit	
+Production.WorkOrderRouting	OperationSequence	smallint	NOT NULL	Omit	
+Production.WorkOrderRouting	LocationID	smallint	NOT NULL	Omit	
+Production.WorkOrderRouting	ScheduledStartDate	datetime	NOT NULL	Omit	
+Production.WorkOrderRouting	ScheduledEndDate	datetime	NOT NULL	Omit	
+Production.WorkOrderRouting	ActualStartDate	datetime	NULL	Omit	
+Production.WorkOrderRouting	ActualEndDate	datetime	NULL	Omit	
+Production.WorkOrderRouting	ActualResourceHrs	"decimal(9,4)"	NULL	Omit	
+Production.WorkOrderRouting	PlannedCost	money	NOT NULL	Omit	
+Production.WorkOrderRouting	ActualCost	money	NULL	Omit	
+Production.WorkOrderRouting	ModifiedDate	datetime	NOT NULL	Omit	
+Purchasing.ProductVendor	ProductID	int	NOT NULL	Omit	
+Purchasing.ProductVendor	BusinessEntityID	int	NOT NULL	Omit	
+Purchasing.ProductVendor	AverageLeadTime	int	NOT NULL	Omit	
+Purchasing.ProductVendor	StandardPrice	money	NOT NULL	Omit	
+Purchasing.ProductVendor	LastReceiptCost	money	NULL	Omit	
+Purchasing.ProductVendor	LastReceiptDate	datetime	NULL	Omit	
+Purchasing.ProductVendor	MinOrderQty	int	NOT NULL	Omit	
+Purchasing.ProductVendor	MaxOrderQty	int	NOT NULL	Omit	
+Purchasing.ProductVendor	OnOrderQty	int	NULL	Omit	
+Purchasing.ProductVendor	UnitMeasureCode	nchar(3)	NOT NULL	Omit	
+Purchasing.ProductVendor	ModifiedDate	datetime	NOT NULL	Omit	
+Purchasing.PurchaseOrderDetail	PurchaseOrderID	int	NOT NULL	Omit	
+Purchasing.PurchaseOrderDetail	PurchaseOrderDetailID	int	NOT NULL	Omit	
+Purchasing.PurchaseOrderDetail	DueDate	datetime	NOT NULL	Omit	
+Purchasing.PurchaseOrderDetail	OrderQty	smallint	NOT NULL	Omit	
+Purchasing.PurchaseOrderDetail	ProductID	int	NOT NULL	Omit	
+Purchasing.PurchaseOrderDetail	UnitPrice	money	NOT NULL	Omit	
+Purchasing.PurchaseOrderDetail	LineTotal	money	NOT NULL	Omit	
+Purchasing.PurchaseOrderDetail	ReceivedQty	"decimal(8,2)"	NOT NULL	Omit	
+Purchasing.PurchaseOrderDetail	RejectedQty	"decimal(8,2)"	NOT NULL	Omit	
+Purchasing.PurchaseOrderDetail	StockedQty	"decimal(9,2)"	NOT NULL	Omit	
+Purchasing.PurchaseOrderDetail	ModifiedDate	datetime	NOT NULL	Omit	
+Purchasing.PurchaseOrderHeader	PurchaseOrderID	int	NOT NULL	Omit	
+Purchasing.PurchaseOrderHeader	RevisionNumber	tinyint	NOT NULL	Omit	
+Purchasing.PurchaseOrderHeader	Status	tinyint	NOT NULL	Omit	
+Purchasing.PurchaseOrderHeader	EmployeeID	int	NOT NULL	Omit	
+Purchasing.PurchaseOrderHeader	VendorID	int	NOT NULL	Omit	
+Purchasing.PurchaseOrderHeader	ShipMethodID	int	NOT NULL	Omit	
+Purchasing.PurchaseOrderHeader	OrderDate	datetime	NOT NULL	Omit	
+Purchasing.PurchaseOrderHeader	ShipDate	datetime	NULL	Omit	
+Purchasing.PurchaseOrderHeader	SubTotal	money	NOT NULL	Omit	
+Purchasing.PurchaseOrderHeader	TaxAmt	money	NOT NULL	Omit	
+Purchasing.PurchaseOrderHeader	Freight	money	NOT NULL	Omit	
+Purchasing.PurchaseOrderHeader	TotalDue	money	NOT NULL	Omit	
+Purchasing.PurchaseOrderHeader	ModifiedDate	datetime	NOT NULL	Omit	
+Purchasing.ShipMethod	ShipMethodID	int	NOT NULL	Omit	
+Purchasing.ShipMethod	Name	nvarchar(50)	NOT NULL	Omit	
+Purchasing.ShipMethod	ShipBase	money	NOT NULL	Omit	
+Purchasing.ShipMethod	ShipRate	money	NOT NULL	Omit	
+Purchasing.ShipMethod	rowguid	uniqueidentifier	NOT NULL	Omit	
+Purchasing.ShipMethod	ModifiedDate	datetime	NOT NULL	Omit	
+Purchasing.Vendor	BusinessEntityID	int	NOT NULL	Omit	
+Purchasing.Vendor	AccountNumber	nvarchar(15)	NOT NULL	Omit	
+Purchasing.Vendor	Name	nvarchar(50)	NOT NULL	Omit	
+Purchasing.Vendor	CreditRating	tinyint	NOT NULL	Omit	
+Purchasing.Vendor	PreferredVendorStatus	bit	NOT NULL	Omit	
+Purchasing.Vendor	ActiveFlag	bit	NOT NULL	Omit	
+Purchasing.Vendor	PurchasingWebServiceURL	nvarchar(1024)	NULL	Omit	
+Purchasing.Vendor	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.CountryRegionCurrency	CountryRegionCode	nvarchar(3)	NOT NULL	Omit	
+Sales.CountryRegionCurrency	CurrencyCode	nchar(3)	NOT NULL	Omit	
+Sales.CountryRegionCurrency	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.CreditCard	CreditCardID	int	NOT NULL	Omit	
+Sales.CreditCard	CardType	nvarchar(50)	NOT NULL	Omit	
+Sales.CreditCard	CardNumber	nvarchar(25)	NOT NULL	Omit	
+Sales.CreditCard	ExpMonth	tinyint	NOT NULL	Omit	
+Sales.CreditCard	ExpYear	smallint	NOT NULL	Omit	
+Sales.CreditCard	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.Currency	CurrencyCode	nchar(3)	NOT NULL	Omit	
+Sales.Currency	Name	nvarchar(50)	NOT NULL	Omit	
+Sales.Currency	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.CurrencyRate	CurrencyRateID	int	NOT NULL	Omit	
+Sales.CurrencyRate	CurrencyRateDate	datetime	NOT NULL	Omit	
+Sales.CurrencyRate	FromCurrencyCode	nchar(3)	NOT NULL	Omit	
+Sales.CurrencyRate	ToCurrencyCode	nchar(3)	NOT NULL	Omit	
+Sales.CurrencyRate	AverageRate	money	NOT NULL	Omit	
+Sales.CurrencyRate	EndOfDayRate	money	NOT NULL	Omit	
+Sales.CurrencyRate	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.Customer	CustomerID	int	NOT NULL	Omit	
+Sales.Customer	PersonID	int	NULL	Omit	
+Sales.Customer	StoreID	int	NULL	Omit	
+Sales.Customer	TerritoryID	int	NULL	Omit	
+Sales.Customer	AccountNumber	varchar(10)	NOT NULL	Omit	
+Sales.Customer	rowguid	uniqueidentifier	NOT NULL	Omit	
+Sales.Customer	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.PersonCreditCard	BusinessEntityID	int	NOT NULL	Omit	
+Sales.PersonCreditCard	CreditCardID	int	NOT NULL	Omit	
+Sales.PersonCreditCard	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.SalesOrderDetail	SalesOrderID	int	NOT NULL	Omit	
+Sales.SalesOrderDetail	SalesOrderDetailID	int	NOT NULL	Omit	
+Sales.SalesOrderDetail	CarrierTrackingNumber	nvarchar(25)	NULL	Omit	
+Sales.SalesOrderDetail	OrderQty	smallint	NOT NULL	Omit	
+Sales.SalesOrderDetail	ProductID	int	NOT NULL	Omit	
+Sales.SalesOrderDetail	SpecialOfferID	int	NOT NULL	Omit	
+Sales.SalesOrderDetail	UnitPrice	money	NOT NULL	Omit	
+Sales.SalesOrderDetail	UnitPriceDiscount	money	NOT NULL	Omit	
+Sales.SalesOrderDetail	LineTotal	"numeric(38,6)"	NOT NULL	Omit	
+Sales.SalesOrderDetail	rowguid	uniqueidentifier	NOT NULL	Omit	
+Sales.SalesOrderDetail	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.SalesOrderHeader	SalesOrderID	int	NOT NULL	Omit	
+Sales.SalesOrderHeader	RevisionNumber	tinyint	NOT NULL	Omit	
+Sales.SalesOrderHeader	OrderDate	datetime	NOT NULL	Omit	
+Sales.SalesOrderHeader	DueDate	datetime	NOT NULL	Omit	
+Sales.SalesOrderHeader	ShipDate	datetime	NULL	Omit	
+Sales.SalesOrderHeader	Status	tinyint	NOT NULL	Omit	
+Sales.SalesOrderHeader	OnlineOrderFlag	bit	NOT NULL	Omit	
+Sales.SalesOrderHeader	SalesOrderNumber	nvarchar(25)	NOT NULL	Omit	
+Sales.SalesOrderHeader	PurchaseOrderNumber	nvarchar(25)	NULL	Omit	
+Sales.SalesOrderHeader	AccountNumber	nvarchar(15)	NULL	Omit	
+Sales.SalesOrderHeader	CustomerID	int	NOT NULL	Omit	
+Sales.SalesOrderHeader	SalesPersonID	int	NULL	Omit	
+Sales.SalesOrderHeader	TerritoryID	int	NULL	Omit	
+Sales.SalesOrderHeader	BillToAddressID	int	NOT NULL	Omit	
+Sales.SalesOrderHeader	ShipToAddressID	int	NOT NULL	Omit	
+Sales.SalesOrderHeader	ShipMethodID	int	NOT NULL	Omit	
+Sales.SalesOrderHeader	CreditCardID	int	NULL	Omit	
+Sales.SalesOrderHeader	CreditCardApprovalCode	varchar(15)	NULL	Omit	
+Sales.SalesOrderHeader	CurrencyRateID	int	NULL	Omit	
+Sales.SalesOrderHeader	SubTotal	money	NOT NULL	Omit	
+Sales.SalesOrderHeader	TaxAmt	money	NOT NULL	Omit	
+Sales.SalesOrderHeader	Freight	money	NOT NULL	Omit	
+Sales.SalesOrderHeader	TotalDue	money	NOT NULL	Omit	
+Sales.SalesOrderHeader	Comment	nvarchar(128)	NULL	Omit	
+Sales.SalesOrderHeader	rowguid	uniqueidentifier	NOT NULL	Omit	
+Sales.SalesOrderHeader	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.SalesOrderHeaderSalesReason	SalesOrderID	int	NOT NULL	Omit	
+Sales.SalesOrderHeaderSalesReason	SalesReasonID	int	NOT NULL	Omit	
+Sales.SalesOrderHeaderSalesReason	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.SalesPerson	BusinessEntityID	int	NOT NULL	Omit	
+Sales.SalesPerson	TerritoryID	int	NULL	Omit	
+Sales.SalesPerson	SalesQuota	money	NULL	Omit	
+Sales.SalesPerson	Bonus	money	NOT NULL	Omit	
+Sales.SalesPerson	CommissionPct	smallmoney	NOT NULL	Omit	
+Sales.SalesPerson	SalesYTD	money	NOT NULL	Omit	
+Sales.SalesPerson	SalesLastYear	money	NOT NULL	Omit	
+Sales.SalesPerson	rowguid	uniqueidentifier	NOT NULL	Omit	
+Sales.SalesPerson	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.SalesPersonQuotaHistory	BusinessEntityID	int	NOT NULL	Omit	
+Sales.SalesPersonQuotaHistory	QuotaDate	datetime	NOT NULL	Omit	
+Sales.SalesPersonQuotaHistory	SalesQuota	money	NOT NULL	Omit	
+Sales.SalesPersonQuotaHistory	rowguid	uniqueidentifier	NOT NULL	Omit	
+Sales.SalesPersonQuotaHistory	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.SalesReason	SalesReasonID	int	NOT NULL	Omit	
+Sales.SalesReason	Name	nvarchar(50)	NOT NULL	Omit	
+Sales.SalesReason	ReasonType	nvarchar(50)	NOT NULL	Omit	
+Sales.SalesReason	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.SalesTaxRate	SalesTaxRateID	int	NOT NULL	Omit	
+Sales.SalesTaxRate	StateProvinceID	int	NOT NULL	Omit	
+Sales.SalesTaxRate	TaxType	tinyint	NOT NULL	Omit	
+Sales.SalesTaxRate	TaxRate	smallmoney	NOT NULL	Omit	
+Sales.SalesTaxRate	Name	nvarchar(50)	NOT NULL	Omit	
+Sales.SalesTaxRate	rowguid	uniqueidentifier	NOT NULL	Omit	
+Sales.SalesTaxRate	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.SalesTerritory	TerritoryID	int	NOT NULL	Omit	
+Sales.SalesTerritory	Name	nvarchar(50)	NOT NULL	Omit	
+Sales.SalesTerritory	CountryRegionCode	nvarchar(3)	NOT NULL	Omit	
+Sales.SalesTerritory	Group	nvarchar(50)	NOT NULL	Omit	
+Sales.SalesTerritory	SalesYTD	money	NOT NULL	Omit	
+Sales.SalesTerritory	SalesLastYear	money	NOT NULL	Omit	
+Sales.SalesTerritory	CostYTD	money	NOT NULL	Omit	
+Sales.SalesTerritory	CostLastYear	money	NOT NULL	Omit	
+Sales.SalesTerritory	rowguid	uniqueidentifier	NOT NULL	Omit	
+Sales.SalesTerritory	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.SalesTerritoryHistory	BusinessEntityID	int	NOT NULL	Omit	
+Sales.SalesTerritoryHistory	TerritoryID	int	NOT NULL	Omit	
+Sales.SalesTerritoryHistory	StartDate	datetime	NOT NULL	Omit	
+Sales.SalesTerritoryHistory	EndDate	datetime	NULL	Omit	
+Sales.SalesTerritoryHistory	rowguid	uniqueidentifier	NOT NULL	Omit	
+Sales.SalesTerritoryHistory	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.ShoppingCartItem	ShoppingCartItemID	int	NOT NULL	Omit	
+Sales.ShoppingCartItem	ShoppingCartID	nvarchar(50)	NOT NULL	Omit	
+Sales.ShoppingCartItem	Quantity	int	NOT NULL	Omit	
+Sales.ShoppingCartItem	ProductID	int	NOT NULL	Omit	
+Sales.ShoppingCartItem	DateCreated	datetime	NOT NULL	Omit	
+Sales.ShoppingCartItem	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.SpecialOffer	SpecialOfferID	int	NOT NULL	Random	
+Sales.SpecialOffer	Description	nvarchar(255)	NOT NULL	Omit	
+Sales.SpecialOffer	DiscountPct	smallmoney	NOT NULL	RandomPseudonymPerTable	
+Sales.SpecialOffer	Type	nvarchar(50)	NOT NULL	Omit	
+Sales.SpecialOffer	Category	nvarchar(50)	NOT NULL	RandomFromSet	
+Sales.SpecialOffer	StartDate	datetime	NOT NULL	RandomPseudonym	
+Sales.SpecialOffer	EndDate	datetime	NOT NULL	Omit	
+Sales.SpecialOffer	MinQty	int	NOT NULL	RandomFromSet	
+Sales.SpecialOffer	MaxQty	int	NULL	Set Null	
+Sales.SpecialOffer	rowguid	uniqueidentifier	NOT NULL	Omit	
+Sales.SpecialOffer	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.SpecialOfferProduct	SpecialOfferID	int	NOT NULL	Omit	
+Sales.SpecialOfferProduct	ProductID	int	NOT NULL	Omit	
+Sales.SpecialOfferProduct	rowguid	uniqueidentifier	NOT NULL	Omit	
+Sales.SpecialOfferProduct	ModifiedDate	datetime	NOT NULL	Omit	
+Sales.Store	BusinessEntityID	int	NOT NULL	RandomFromSet	
+Sales.Store	Name	nvarchar(50)	NOT NULL	Random	
+Sales.Store	SalesPersonID	int	NULL	RandomPseudonymFromSet	
+Sales.Store	Demographics	XML(Sales.StoreSurveySchemaCollection)	NULL	Omit	
+Sales.Store	rowguid	uniqueidentifier	NOT NULL	Random	
+Sales.Store	ModifiedDate	datetime	NOT NULL	None	

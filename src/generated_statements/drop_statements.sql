@@ -1,0 +1,19 @@
+USE ADVENTUREWORKS_1907
+GO
+DROP VIEW vw_TablesColumnsProperties
+DROP VIEW vw_getRANDValue
+DROP FUNCTION GenerateRandomString
+DROP PROCEDURE sp_fillup_RandomPseudonymTableMap
+DROP PROCEDURE sp_fillup_RandomPseudonymMap
+DROP TABLE bit_RandomPseudonymMap
+DROP TABLE smallint_RandomPseudonymMap
+DROP TABLE datetime_RandomPseudonymMap
+DROP TABLE time_7_RandomPseudonymPerTableMap
+DROP TABLE smallmoney_RandomPseudonymPerTableMap
+DROP TABLE HumanResources_Employee_MaritalStatus_RandomPseudonymFromSetMap
+DROP TABLE HumanResources_Shift_ShiftID_RandomPseudonymFromSetMap
+DROP TABLE Sales_SalesPerson_BusinessEntityID_RandomPseudonymFromSetMap
+DROP VIEW vw_HumanResources_Employee_Anonymized
+DROP VIEW vw_HumanResources_Shift_Anonymized
+DROP VIEW vw_Sales_SpecialOffer_Anonymized
+
